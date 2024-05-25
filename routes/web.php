@@ -15,12 +15,12 @@ use Illuminate\Support\Facades\Route;
 
 // Home page - returns a view (resources/views/welcome.blade.php)
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
 // About page - returns a string
 Route::get('/about', function () {
-    return "About Us";
+    return view('about');
 });
 
 // Contact page - returns a view (resources/views/contact.php)
