@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Models\Job;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,3 +33,18 @@ Route::get('/contact', function () {
 Route::get('/api-test', function () {
     return ['foo' => 'bar'];
 });
+
+// Jobs (page)
+Route::get('/jobs', function ()  {
+
+    return view('jobs', ['jobs' => Job::all()]);
+});
+
+// Job (post)
+Route::get('/job/{id}', function($id)  {
+
+    $job = Job::find($id);
+
+    return view('job', ['job' => $job]);
+});
+
