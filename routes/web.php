@@ -37,7 +37,9 @@ Route::get('/api-test', function () {
 // Jobs (page)
 Route::get('/jobs', function ()  {
 
-    return view('jobs', ['jobs' => Job::all()]);
+    return view('jobs', [
+        'jobs' => Job::all()
+    ]);
 });
 
 // Job (post)

@@ -2,41 +2,12 @@
 
 namespace App\Models;
 
-use Illuminate\Support\Arr;
+use Illuminate\Database\Eloquent\Model;
 
-class Job {
-    public static function all(): array
-    {
+class Job extends Model {
 
-        $jobs = [
-            [
-                'id'    => 1,
-                'title' => 'CEO',
-                'wage'  => '£50,000'
-            ],
-            [
-                'id'    => 2,
-                'title' => 'Labourer',
-                'wage'  => '£20,000',
-            ],
-            [
-                'id'    => 3,
-                'title' => 'Picker',
-                'wage'  => '£30,000'
-            ]
-        ];
+    protected $table = 'job_listings';
 
-        return $jobs;
-    }
+    protected $fillable = ['title', 'salary'];
 
-    public static function find(int $offer): array
-    {
-        $job = Arr::first(static::all(), fn($job) => $job['id'] == $offer);
-
-        if (! $job) {
-            abort(404);
-        }
-
-        return $job;
-    }
 }
